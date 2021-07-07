@@ -1,0 +1,14 @@
+package com.fxf.lamda.functuionalInterfaces;
+
+/**
+ * @author 饭小范
+ * @version 1.0
+ * @description: TODO 有返回值，多个参数的函数式接口
+ * @date 2021/6/20 18:50
+ */
+@FunctionalInterface
+public interface SingleReturnMutipleParameter {
+
+    int test(int a, int b);
+
+}
