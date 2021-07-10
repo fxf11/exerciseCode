@@ -24,7 +24,8 @@ public class Demo1_8 extends ClassLoader {//可以用来加载类的二进制字
                 //返回byte[]
                 byte[] code = cw.toByteArray();
                 //执行了类的加载
-                test.defineClass("Class" + i,code,0,code.length);//Class对象
+                //Class对象
+                test.defineClass("Class" + i,code,0,code.length);
             }
         }finally {
             System.out.println(j);

@@ -13,11 +13,19 @@ import java.util.Scanner;
  * 分析：本实例中由于存在不同的图形类，例如，“圆”和“正方形”，它们计算面积的方法不一样，所以需要用一个原型管理器来管理它们
  */
 interface Shape extends Cloneable {
-    public Object clone();    //拷贝
-    public void countArea();    //计算面积
+    /**
+     * 拷贝
+     * @return
+     */
+    public Object clone();
+
+    /**
+     * 计算面积
+     */
+    public void countArea();
 }
-//具体原型
-class Circle implements Shape{
+
+class Circle implements Shape{//具体原型
 
     @Override
     public Object clone() {
@@ -39,8 +47,8 @@ class Circle implements Shape{
         System.out.println("该圆的面积=" + 3.1415 * r * r + "\n");
     }
 }
-//具体原型
-class Square implements Shape{
+
+class Square implements Shape{//具体原型
 
     @Override
     public Object clone() {
@@ -62,8 +70,8 @@ class Square implements Shape{
         System.out.println("该正方形的面积=" + a * a + "\n");
     }
 }
-//原型管理器
-class ProtoTypeManager {
+
+class ProtoTypeManager {//原型管理器
     private HashMap<String, Shape> ht = new HashMap<String, Shape>();
 
     public ProtoTypeManager(){
@@ -80,7 +88,10 @@ class ProtoTypeManager {
         return (Shape) temp.clone();
     }
 }
-//访问类
+
+/**
+ * 访问类
+ */
 class ProtoTypeShape {
     public static void main(String[] args) {
         ProtoTypeManager pm = new ProtoTypeManager();
