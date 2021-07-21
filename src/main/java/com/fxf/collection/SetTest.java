@@ -107,6 +107,7 @@ public class SetTest {
     public void treeSetTest1(){
 
 
+        //自定义排序规则
         Comparator com = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
