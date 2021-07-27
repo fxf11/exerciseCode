@@ -48,4 +48,34 @@ public class CollectionTest {
         System.out.println(coll.contains(new String("Tom")));
 
     }
+
+    @Test
+    public void test2(){
+
+        ArrayList list = new ArrayList();
+        list.add(123);
+        list.add(44);
+        list.add(34);
+        list.add(42);
+        list.add(55);
+        list.add(89);
+        System.out.println(list);
+        //倒序
+        //Collections.reverse(list);
+
+        //随机
+        //Collections.shuffle(list);
+        //排序
+//        Collections.sort(list);
+        //交换
+//        Collections.swap(list,1,2);
+
+        int frequency = Collections.frequency(list, 123);
+        System.out.println(frequency);
+
+        System.out.println(list);
+
+
+
+    }
 }

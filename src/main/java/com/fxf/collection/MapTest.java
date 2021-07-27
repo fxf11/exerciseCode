@@ -2,9 +2,7 @@ package com.fxf.collection;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -44,6 +42,23 @@ import java.util.Map;
  *          jdk7的底层数据结构为：数组+链表 jdk8中为数组+链表+红黑树
  *              当数组的某一个索引位置上的链表形式的数据个数 > 8 且当前数组的长度 > 64，此时该索引位置上的所有数据会改为红黑树存储
  *
+ *      HashMap源码常见变量：
+ *          DEFAULT_INITIAL_CAPACITY:HashMap的默认容量，16
+ *          MAXIMUM_CAPCITY:HashMap的最大支持容量，2^30
+ *          TREEIFY_THRESHOLD：BUcket桶中链表长度大于该默认值，转化为红黑树
+ *          UNTREEIFY——THRESHOLD：BUCKET中红黑树存储的NODE小于该默认值，转化为链表
+ *          MIN_TREEIFY_CAPACITY:桶中NODE被书画时最小的hash表容量
+ *
+ *          table：存储元素的数组，总是2的n次幂
+ *          entrySet：存储具体元素的集
+ *          size：hashMap中存储的键值对的数量
+ *          modCount：HashMap扩容和结构改变的次数。
+ *          threshold：扩容的临界值，=容量*填充因子
+ *          loadFactor:填充因子
+ *
+ *
+ * Map中常用方法00
+ *
  *
  * @author 饭小范
  * @version 1.0
@@ -52,11 +67,60 @@ import java.util.Map;
  */
 public class MapTest {
 
+    /**
+     * Map遍历
+     */
+    @Test
+    public void test4(){
+
+        Map hashMap = new HashMap();
+        hashMap.put("AA",123);
+        hashMap.put("BB",123);
+        hashMap.put("CC",324);
+
+        Set set = hashMap.keySet();
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+        //遍历所有的value
+        Collection values = hashMap.values();
+        for (Object value : values) {
+            System.out.println(value);
+        }
+    }
+
+    @Test
+    public void test3(){
+        Map hashMap = new HashMap();
+        hashMap.put("AA",123);
+        hashMap.put("BB",123);
+        hashMap.put("CC",324);
+
+        boolean aa = hashMap.containsKey("AA");
+        System.out.println(aa);
+        boolean b = hashMap.containsValue(123);
+        System.out.println(b);
+    }
+
+    @Test
+    public void test2(){
+        Map hashMap = new LinkedHashMap();
+        hashMap.put(123,"AA");
+        hashMap.put(345,"BB");
+        hashMap.put(56,"CC");
+        System.out.println(hashMap);
+
+    }
+
+
     @Test
     public void test1(){
 
         HashMap hashMap = new HashMap();
-        hashMap.put(null,null);
+        hashMap.put(1,"ces");
+        hashMap.put(1,"cesx");
+        System.out.println(hashMap.get(1));
 
     }
 }
