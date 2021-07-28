@@ -1,12 +1,14 @@
 package com.fxf.reflection;
 
+import java.io.Serializable;
+
 /**
  * @author 饭小范
  * @version 1.0
  * @description: TODO
  * @date 2021/7/27 0:33
  */
-public class Person {
+public class Person implements Serializable {
 
     public String name;
     public int age;
@@ -54,5 +56,9 @@ public class Person {
     private String showNation(String nation){
         System.out.println("我的国籍是："+ nation);
         return nation;
+    }
+
+    public static void showDesc(){
+        System.out.println("我是一个可爱的人");
     }
 }
