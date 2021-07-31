@@ -3,6 +3,8 @@ package com.fxf.collection;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  *
@@ -72,6 +74,9 @@ public class MapTest {
      */
     @Test
     public void test4(){
+
+        ConcurrentHashMap<Object, Object> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("s",123);
 
         Map hashMap = new HashMap();
         hashMap.put("AA",123);
