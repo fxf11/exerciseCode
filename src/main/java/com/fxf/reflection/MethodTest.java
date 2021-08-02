@@ -2,7 +2,9 @@ package com.fxf.reflection;
 
 import org.junit.Test;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * @author 饭小范
@@ -33,8 +35,47 @@ public class MethodTest {
      * 权限修饰符  返回值类型   方法名（参数类型1  形参名1...）
      */
     @Test
-    public void test2(){
+    public void test2() {
+        Class<Person> personClass = Person.class;
+        Method[] declaredMethods = personClass.getDeclaredMethods();
+        for (Method declaredMethod : declaredMethods) {
+            //获得方法声明的注解
+            Annotation[] annotations = declaredMethod.getAnnotations();
+            for (Annotation annotation : annotations) {
+                System.out.println(annotation);
+            }
 
+            //权限修饰符
+            System.out.println(Modifier.toString(declaredMethod.getModifiers()) + "\t");
 
+            //返回值类型
+            System.out.println(declaredMethod.getReturnType().getName() + "\t");
+
+            //方法名
+            System.out.println(declaredMethod.getName());
+            System.out.println("--------------------------");
+            //形参列表
+            Class<?>[] parameterTypes = declaredMethod.getParameterTypes();
+            if (parameterTypes == null && parameterTypes.length == 0) {
+                for (Class<?> parameterType : parameterTypes) {
+                    System.out.println(parameterType.getName() + "args_");
+                }
+            }
+
+            //抛出的异常
+            Class[] exceptionTypes = declaredMethod.getExceptionTypes();
+            if (!(exceptionTypes == null && exceptionTypes.length == 0)){
+                System.out.println("throws");
+                for (int i = 0; i < exceptionTypes.length; i++) {
+                    if (i == exceptionTypes.length -1){
+                        System.out.println(exceptionTypes[i].getName());
+                        break;
+                    }
+                    System.out.println(exceptionTypes[i].getName() + ",");
+
+                }
+            }
+
+        }
     }
 }
