@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @description: TODO
  * @date 2021/7/27 0:33
  */
-public class Person implements Serializable {
+public class Person implements Serializable,Cloneable {
 
     public String name;
     public int age;
@@ -47,6 +47,11 @@ public class Person implements Serializable {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public void show(){
