@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -38,6 +39,14 @@ import java.util.stream.Stream;
  */
 public class StreamApiTest {
 
+    public static void main(String[] args) {
+
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+
+    }
+
     //通过集合创建Stream
     @Test
     public void test(){
@@ -60,8 +69,8 @@ public class StreamApiTest {
         Person[] arr1 = new Person[]{person,person1};
         Stream<Person> stream1 = Arrays.stream(arr1);
     }
-
     /**
+
      * 通过Stream的of()创建Stream
      */
     @Test
@@ -103,6 +112,17 @@ public class StreamApiTest {
 
         return list;
 
+    }
+
+    @Test
+    public void test5(){
+        List<Integer> ids = new ArrayList<>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(4);
+        ids.add(3);
+        List<Long> longs = ids.stream().map(s -> Long.parseLong(String.valueOf(s))).collect(Collectors.toList());
+        System.out.println(longs);
     }
 
 }

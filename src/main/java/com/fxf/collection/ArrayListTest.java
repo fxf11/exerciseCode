@@ -1,5 +1,7 @@
 package com.fxf.collection;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +56,30 @@ public class ArrayListTest {
         for (Integer integer : list) {
             System.out.println(integer);
         }
+
+    }
+
+    @Test
+    public void arrayRemove(){
+        System.out.println("测试remove包装类型和非包装类型");
+        ArrayList<Integer> myList = new ArrayList<>();
+        for (int k = 0; k < 10; k++) {
+            myList.add((k + 1) * 10);
+        }
+
+        System.out.println("myList:" + myList);
+
+        //如果ArrayList内装的是Integer对象，则 .remove(8)是删掉下标为8的元素
+        System.out.println(String.format("%s:%s myList:%s", "remove(8)", myList.remove(8), myList));
+
+        //将元素80替换为8
+        myList.set(myList.indexOf(80), 8);
+
+        Collections.shuffle(myList);
+
+        System.out.println("myList:" + myList);
+        // myList.remove(Integer.valueOf(8)) 是删掉8这个元素
+        System.out.println(String.format("%s:%s myList:%s", "remove(Integer.valueOf(8))", myList.remove(Integer.valueOf(8)), myList));
 
     }
 }

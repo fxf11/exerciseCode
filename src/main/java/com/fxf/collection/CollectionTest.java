@@ -34,6 +34,7 @@ public class CollectionTest {
     @Test
     public void test1(){
         Collection coll = new ArrayList();
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<Object,Object>();
 
         //add()
         coll.add(123);
@@ -77,5 +78,16 @@ public class CollectionTest {
 
 
 
+    }
+
+    public static void test(StringBuffer sb){
+         sb = new StringBuffer("hello");
+         sb.append("hello");
+    }
+
+    public static void main(String[] args) {
+        StringBuffer hello = new StringBuffer("hello");
+        test(hello);
+        System.out.println(hello.toString());
     }
 }
