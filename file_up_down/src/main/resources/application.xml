@@ -1,0 +1,4 @@
+<bean id="fbHelloWorldService" class="com.ebao.xxx.MyFactoryBean">
+    <property name="interfaceName" value="com.ebao.xxx.HelloWorldService" />
+    <property name="target" ref="helloWorldService" />
+</bean>

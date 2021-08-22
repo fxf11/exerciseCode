@@ -1,5 +1,10 @@
 package com.fxf.lamda;
 
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
+
 /**
  * @author 饭小范
  * @version 1.0
@@ -39,6 +44,25 @@ public class Lambda1 {
             return y - x;
         }
         return x + y;
+    }
+
+    @Test
+    public void listTest() throws Exception {
+        ArrayList<Object> lists = new ArrayList<>();
+
+        for (int i = 0; i < 15; i++) {
+            lists.add(i);
+        }
+
+        lists.forEach(list -> System.out.print(list+" "));
+
+        Callable callable = () -> {
+            System.out.println();
+            System.out.println(123);
+            return 10;
+        };
+        Object call = callable.call();
+        System.out.println(call);
     }
 
 }

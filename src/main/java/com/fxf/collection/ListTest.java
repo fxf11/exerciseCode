@@ -1,6 +1,8 @@
 package com.fxf.collection;
 
-import java.util.ArrayList;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  *
@@ -40,5 +42,41 @@ public class ListTest {
          * jdk1.7中ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象的长江见类似于单例的懒汉式，延迟了数组的创建，节省内存
          */
         list.add("123");
+    }
+
+    @Test
+    public void test1(){
+//        ArrayList<String> list = new ArrayList<>();
+//
+//        for (int i = 0; i < 20; i++) {
+//            list.add(i+"s");
+//        }
+//        System.out.println(list);
+
+        String[] str = {"e","c","a","s","g"};
+        List<String> list = Arrays.asList(str);
+
+//        list.add("ss");//UnsupportedOperationException
+        System.out.println(list);
+
+        Map<Object, Object> map = new HashMap<>(16);
+        map.put("s",123);
+        map.put("sv",23);
+
+        map.forEach((k,v) -> System.out.println(v));
+
+
+
+    }
+
+    @Test
+    public void test2(){
+        Integer a = 1;
+        Integer b = 2;
+        Integer c = null;
+        System.out.println(c);
+        Boolean flag = false;
+        Integer result = (flag ? a * b :c);
+        System.out.println(result);
     }
 }

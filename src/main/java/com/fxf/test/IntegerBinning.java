@@ -113,6 +113,7 @@ public class IntegerBinning {
         System.out.println(g==(a+b));//true
         System.out.println(g.equals(a+b));//false  equals方法不会进行类型转换
         System.out.println(g.equals(a+h));//true    //a+h运行过程中会进行类型转换
+
     }
 
 

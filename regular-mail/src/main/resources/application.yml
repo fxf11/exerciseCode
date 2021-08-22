@@ -1,0 +1,21 @@
+server:
+  port: 8328
+
+# 使用 smtp 协议
+spring:
+  mail:
+    protocol: smtp
+    host: smtp.qq.com
+    port: 587
+    username: 2099512771@qq.com
+    password: ycbusvziysyocdje
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: false
+        debug: false
+        mime:
+        splitlongparameters: false
+    default-encoding: utf-8
+

@@ -1,7 +1,7 @@
 package com.fxf.reflection;
 
 import org.junit.Test;
-import sun.reflect.Reflection;
+//import sun.reflect.Reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
