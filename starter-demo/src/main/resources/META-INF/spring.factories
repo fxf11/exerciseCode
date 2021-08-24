@@ -1,0 +1,3 @@
+#第二行为你的自动注入配置类的全类名路径
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.fxf.starterdemo.demo.UserAutoConfig
