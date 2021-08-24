@@ -58,7 +58,7 @@ public class MailServiceImpl implements MailService {
         String receiver = "2298831219@qq.com";
         //发送邮件
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        String subject = "来自范范的每日问候";
+        String subject = "邮件主题";
         String emailTemplate = "registerTemplate";
         String qh = HttpUtils.sendGet("https://api.vvhan.com/api/love");
         String xh = HttpUtils.sendGet("https://api.vvhan.com/api/xh");
@@ -83,9 +83,9 @@ public class MailServiceImpl implements MailService {
         // 收件人
         simpleMailMessage.setTo("2298831219@qq.com");
         // 邮件主题
-        simpleMailMessage.setSubject("早安邮件已发送");
+        simpleMailMessage.setSubject("邮件已发送");
         // 邮件内容
-        simpleMailMessage.setText("早安邮件已发送");
+        simpleMailMessage.setText("邮件已发送");
         javaMailSender.send(simpleMailMessage);
     }
 

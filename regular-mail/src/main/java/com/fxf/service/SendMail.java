@@ -26,7 +26,7 @@ public class SendMail {
         String receiver = "2298831219@qq.com";
         //发送邮件
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        String subject = "早安邮件";
+        String subject = "邮件";
         String emailTemplate = "registerTemplate";
         String code = "123123123";
         String qh = HttpUtils.sendGet("https://api.vvhan.com/api/love");
