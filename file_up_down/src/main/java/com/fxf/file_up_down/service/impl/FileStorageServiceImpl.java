@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -26,6 +25,14 @@ import java.util.stream.Stream;
 public class FileStorageServiceImpl implements FileStorageService {
 
     private final Path path = Paths.get("E:/");
+
+    public String fileName;
+    public String url;
+
+    public void fileStorageServiceImpl(String fileName, String url){
+        this.fileName = fileName;
+        this.url = url;
+    }
 
     @Override
     public void init() {

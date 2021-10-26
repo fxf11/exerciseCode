@@ -1,5 +1,7 @@
 package com.fxf.file_up_down.valueobject;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
  * @Description TODO
  * @Author Administrator

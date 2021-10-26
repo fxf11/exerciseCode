@@ -41,7 +41,7 @@ public class MailUtil {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(sender);
-        helper.setTo(receiver);
+        helper.setTo(receiver);//目标用户
         helper.setSubject(subject);
         helper.setText(templateContent, true);
         javaMailSender.send(message);

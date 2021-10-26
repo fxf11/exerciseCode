@@ -24,4 +24,6 @@ public interface FileStorageService {
 
     void clear();
 
+    void fileStorageServiceImpl(String fileName,String url);
+
 }

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: service-search
+fxf:
+  elasticsearch:
+    hostlist: 127.0.0.1:9200 #多个结点中间用逗号分隔

@@ -1,6 +1,7 @@
 package com.fxf;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fxf.starterdemo.demo.UserService;
 import com.fxf.util.HttpUtils;
 import com.fxf.util.MailUtil;
 import org.junit.jupiter.api.Test;
@@ -45,6 +46,16 @@ class RegularMailApplicationTests {
         Map<String,Object> info = (Map) jsonObject.get("info");
         System.out.println(info.get("date"));
         System.out.println(s);
+    }
+
+    @Autowired
+    UserService userService;
+
+    @Test
+    public void test2(){
+        String test = userService.test();
+        System.out.println(test);
+
     }
 
 }

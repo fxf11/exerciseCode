@@ -1,11 +1,14 @@
 package com.fxf.file_up_down.valueobject;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
  * @Description TODO
  * @Author Administrator
  * @Date 2021/8/18 9:58
  * @Version 1.0
  */
+@ConfigurationProperties(prefix = "uploadFile")
 public class UploadFile {
 
     private String fileName;

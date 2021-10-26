@@ -19,3 +19,6 @@ spring:
         splitlongparameters: false
     default-encoding: utf-8
 
+user:
+  userName: 123
+  age: 123
