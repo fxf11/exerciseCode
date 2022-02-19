@@ -63,8 +63,6 @@ public class MailServiceImpl implements MailService {
         String qh = HttpUtils.sendGet("https://api.vvhan.com/api/love");
         String xh = HttpUtils.sendGet("https://api.vvhan.com/api/xh");
         String tq = HttpUtils.sendGet("https://api.vvhan.com/api/weather");
-//        String daoqian = "对不起我的宝，昨天是我的不对，宝贝画了巨美的妆，我没能给你拍到漂亮的照片，知道你生气是因为我的不积极，这也是我一直以来的问题，为了弥补宝贝，" +
-//                "今天晚上（还有以后）积极主动的给宝贝拍照片，并给宝贝买一件衣服，希望宝贝能原谅我，特此为证、范某下不为例";
         JSONObject jsonObject = JSONObject.parseObject(tq);
         Map<String,Object> info = (Map) jsonObject.get("info");
         info.put("qh", qh);
@@ -75,7 +73,8 @@ public class MailServiceImpl implements MailService {
             mailUtil.sendTemplateMail(receiver, subject, emailTemplate, info);
             sendSelfMail();
         } catch (Exception e) {
-            return;
+            e.printStackTrace();
+//            return;
         }
     }
 
