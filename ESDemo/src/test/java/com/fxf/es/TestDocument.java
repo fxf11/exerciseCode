@@ -5,6 +5,7 @@ import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.DocWriteResponse;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -42,11 +43,12 @@ public class TestDocument {
     public void testGet() throws IOException {
         GetRequest getRequest = new GetRequest("book","1");
 
+        //获取指定的字段数据
 //        String[] includes = new String[]{"name","description"};
 //        String[] excludes = Strings.EMPTY_ARRAY;
 //        FetchSourceContext fetchSourceContext = new FetchSourceContext(true, includes, excludes);
 //        getRequest.fetchSourceContext(fetchSourceContext);
-//
+
 //        try {
 //            GetResponse getResponse = client.get(getRequest, RequestOptions.DEFAULT);
 //            System.out.println(getResponse.getSourceAsString());
@@ -57,35 +59,35 @@ public class TestDocument {
 //        }
 
         //------------------异步查询开始-------------------
-//        ActionListener<GetResponse> listener = new ActionListener<GetResponse>() {
-//            //请求成功时
-//            @Override
-//            public void onResponse(GetResponse getResponse) {
-//                System.out.println(getResponse.getId());
-//                System.out.println(getResponse.getVersion());
-//                System.out.println(getResponse.getSourceAsString());
-//            }
-//            //请求失败时
-//            @Override
-//            public void onFailure(Exception e) {
-//                e.printStackTrace();
-//            }
-//        };
-//        client.getAsync(getRequest,RequestOptions.DEFAULT,listener);
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        ActionListener<GetResponse> listener = new ActionListener<GetResponse>() {
+            //请求成功时
+            @Override
+            public void onResponse(GetResponse getResponse) {
+                System.out.println(getResponse.getId());
+                System.out.println(getResponse.getVersion());
+                System.out.println(getResponse.getSourceAsString());
+            }
+            //请求失败时
+            @Override
+            public void onFailure(Exception e) {
+                e.printStackTrace();
+            }
+        };
+        client.getAsync(getRequest,RequestOptions.DEFAULT,listener);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //------------------异步查询结束-------------------
 
         //同步查询
-        GetResponse getResponse = client.get(getRequest, RequestOptions.DEFAULT);
-        if (getResponse.isExists()){
-            System.out.println(getResponse.getSourceAsString());
-            System.out.println(getResponse.getVersion());
-            System.out.println(getResponse.getId());
-        }
+//        GetResponse getResponse = client.get(getRequest, RequestOptions.DEFAULT);
+//        if (getResponse.isExists()){
+//            System.out.println(getResponse.getSourceAsString());
+//            System.out.println(getResponse.getVersion());
+//            System.out.println(getResponse.getId());
+//        }
     }
 
     @Test
@@ -211,8 +213,9 @@ public class TestDocument {
     }
 
     @Test
-    public void testDelete(){
-
+    public void testDelete() throws IOException {
+//        DeleteRequest requset = new DeleteRequest(index,id);
+//        client.delete(requset,RequestOptions.DEFAULT);
     }
 
     @Test

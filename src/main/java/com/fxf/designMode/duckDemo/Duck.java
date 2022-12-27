@@ -1,5 +1,6 @@
 package com.fxf.designMode.duckDemo;
 
+
 import com.fxf.designMode.duckDemo.behavior.FlyBehavior;
 import com.fxf.designMode.duckDemo.behavior.QuackBehavior;
 

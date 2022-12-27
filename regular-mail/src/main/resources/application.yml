@@ -3,6 +3,12 @@ server:
 
 # 使用 smtp 协议
 spring:
+  redis:
+    database: 0
+    host: 120.76.250.14         # Redis服务器地址
+    port: 6379              # Redis服务器连接端口
+    password: 1101328zjw#              # Redis服务器连接密码（默认为空）
+
   mail:
     protocol: smtp
     host: smtp.qq.com
@@ -18,7 +24,18 @@ spring:
         mime:
         splitlongparameters: false
     default-encoding: utf-8
-
+#  rabbitmq:
+#    host: 120.76.250.14
+#    port: 5672
+#    username: fxf
+#    password: 123456
+#    virtual-host: /
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#        prefetch: 1
+#    publisher-returns: true
+#    publisher-confirms: true
 user:
   userName: 123
   age: 123

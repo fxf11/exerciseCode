@@ -16,7 +16,7 @@ public class ArrayListTest {
 
     public static void main(String[] args) {
 
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList();
         list.add(12);
         list.add(23);
         list.add(14);
@@ -30,7 +30,7 @@ public class ArrayListTest {
         }
         System.out.println();
 
-        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list1 = new ArrayList();
         list1.add(12);
         list1.add(29);
         list1.add(14);
@@ -62,7 +62,7 @@ public class ArrayListTest {
     @Test
     public void arrayRemove(){
         System.out.println("测试remove包装类型和非包装类型");
-        ArrayList<Integer> myList = new ArrayList<>();
+        ArrayList<Integer> myList = new ArrayList();
         for (int k = 0; k < 10; k++) {
             myList.add((k + 1) * 10);
         }

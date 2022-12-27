@@ -25,7 +25,7 @@ public class ListTest {
     public static void main(String[] args) {
 
         //底层创建了长度是10的Object[] elementData数组
-        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<Object> list = new ArrayList();
         //如果此次添加的操作导致底层的elementData数组容量不够
         //则ArrayList底层 会进行扩容，默认扩容为原来的1.5倍
         //具体操作是创建一个长度1.5倍的数组，同时将原有数组的数据copy到新的数组中
@@ -63,7 +63,7 @@ public class ListTest {
         map.put("s",123);
         map.put("sv",23);
 
-        map.forEach((k,v) -> System.out.println(v));
+//        map.forEach((k,v) -> System.out.println(v));
 
 
 

@@ -18,7 +18,7 @@ import com.fxf.designMode.factory.abstractFactory.Pizza;
 public class PizzaTestDrive {
     public static void main(String[] args) {
         NYPizzaStore nyPizzaStore = new NYPizzaStore();
-        Pizza cheese = nyPizzaStore.orderPizza("cheese");
+//        Pizza cheese = nyPizzaStore.orderPizza("cheese");
 
     }
 }
