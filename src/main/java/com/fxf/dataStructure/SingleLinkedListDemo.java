@@ -10,10 +10,82 @@ package com.fxf.dataStructure;
 public class SingleLinkedListDemo {
 
     public static void main(String[] args) {
+
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        SingleLinkedList singleLinkedList2 = new SingleLinkedList();
+
         //进行测试
         //先创建节点
         HeroNode heroNode = new HeroNode(1, "宋江", "及时雨");
+        HeroNode heroNode1 = new HeroNode(2, "宋江1", "及时雨1");
+        HeroNode heroNode2 = new HeroNode(3, "宋江2", "及时雨2");
+        HeroNode heroNode4 = new HeroNode(4, "宋江3", "及时雨3");
+        HeroNode heroNode5 = new HeroNode(5, "宋江5", "及时雨3");
+        HeroNode heroNode6 = new HeroNode(6, "宋江6", "及时雨3");
+        HeroNode heroNode7 = new HeroNode(7, "宋江7", "及时雨3");
+        HeroNode heroNode8 = new HeroNode(8, "宋江8", "及时雨3");
+        singleLinkedList.addByOrder(heroNode);
+        singleLinkedList.addByOrder(heroNode4);
+        singleLinkedList.addByOrder(heroNode6);
+        singleLinkedList.addByOrder(heroNode7);
+        singleLinkedList2.addByOrder(heroNode1);
+        singleLinkedList2.addByOrder(heroNode2);
+        singleLinkedList2.addByOrder(heroNode5);
+
+        singleLinkedList2.addByOrder(heroNode8);
+
+        singleLinkedList.list();
+        System.out.println("--------------");
+        singleLinkedList2.list();
+        System.out.println("=======");
+
+//        reverseList(singleLinkedList.getHead());
+        SingleLinkedList singleLinkedList1 = mergeList(singleLinkedList.getHead(), singleLinkedList2.getHead());
+        singleLinkedList1.list();
+//        singleLinkedList.list();
     }
+
+    public static void reverseList(HeroNode head){
+        if (head.next != null){
+            reverseList(head.next);
+        }
+        System.out.println(head);
+
+
+    }
+
+    /**
+     * 链表合并
+     * @param head1
+     * @param head2
+     * @return
+     */
+    public static SingleLinkedList mergeList(HeroNode head1,HeroNode head2){
+        SingleLinkedList result = new SingleLinkedList();
+        HeroNode resultHead = result.getHead();
+        if (head1.next == null && head2.next == null){
+            return result;
+        }
+        if (head1.next == null){
+            resultHead.next = head2.next;
+        }else if (head2 == null){
+            resultHead.next = head1.next;
+        }else {
+            resultHead.next = head1.next;
+            //遍历head2
+            HeroNode temp =  head2.next;
+            while (true){
+                if (temp == null) {
+                    break;
+                }
+                HeroNode cur = temp;
+                temp = temp.next;
+                result.addByOrder(cur);
+            }
+        }
+        return result;
+    }
+
 
 }
 
@@ -34,9 +106,32 @@ class SingleLinkedList {
             }
             temp = temp.next;
         }
-        temp.next = heroNode;
+
         //将最后一个节点的next指向新的节点
         temp.next = heroNode;
+    }
+
+    //按顺序插入节点，根据排名插入指定节点
+    public void addByOrder(HeroNode heroNode){
+        HeroNode temp = head;
+        boolean flag = false;
+        while (true){
+            if (temp.next == null){
+                break;
+            }
+            if (temp.next.no > heroNode.no){
+                break;
+            }else if (temp.next.no == head.no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;//后移遍历
+        }
+        if (!flag){
+            heroNode.next = temp.next;
+            //当前编号的节点已经存在
+            temp.next = heroNode;
+        }
     }
 
     //遍历链表
@@ -51,12 +146,36 @@ class SingleLinkedList {
                 break;
             }
 
-            System.out.println(temp);
+            System.out.println(temp.toString());
             temp = temp.next;
         }
     }
 
 
+    /**
+     * 链表反转
+     * @param head
+     */
+    public static void reverse(HeroNode head){
+        if (head.next == null ||head.next.next == null){
+            return;
+        }
+        HeroNode reverseHead = new HeroNode(0,"","");
+        HeroNode cur = head.next;
+        HeroNode next = null;//指向当前节点的下一个节点
+        while (cur != null){
+            next = cur.next; //保存当前节点的下一个节点
+            cur.next = reverseHead.next;
+            reverseHead.next = cur;
+            cur = next;
+        }
+
+
+    }
+
+    public HeroNode getHead() {
+        return head;
+    }
 }
 
 class HeroNode{
@@ -71,5 +190,15 @@ class HeroNode{
         this.no = no;
         this.name = name;
         this.nickname = nickname;
+    }
+
+    @Override
+    public String toString() {
+        return "HeroNode{" +
+                "no=" + no +
+                ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
+
+                '}';
     }
 }
