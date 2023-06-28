@@ -3,6 +3,7 @@ package com.fxf;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
+import org.openjdk.jol.util.IOUtils;
 
 /**
  * @Description TODO 布隆过滤器
@@ -18,6 +19,8 @@ public class BloomFilterTest {
     private static BloomFilter<Integer> bloomFilter =  BloomFilter.create(Funnels.integerFunnel(), size, fpp);
 
     public static void main(String[] args) {
+
+        IOUti
         //插入数据
 
         for (int i = 0; i < 1000000; i++) {
